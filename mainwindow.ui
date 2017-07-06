@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>475</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>LDR</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Datei">
+    <property name="title">
+     <string>&amp;Datei</string>
+    </property>
+    <addaction name="action_ffnen"/>
+    <addaction name="action_Beenden"/>
+   </widget>
+   <widget class="QMenu" name="menu_Ansicht">
+    <property name="title">
+     <string>&amp;Ansicht</string>
+    </property>
+    <widget class="QMenu" name="menu_Stil">
+     <property name="title">
+      <string>&amp;Stil</string>
+     </property>
+     <addaction name="action_Qt"/>
+     <addaction name="action_Primary_Colors"/>
+     <addaction name="action_Digia"/>
+     <addaction name="action_Stone_Moss"/>
+     <addaction name="action_Army_Blue"/>
+     <addaction name="action_Retro"/>
+     <addaction name="action_Ebony"/>
+     <addaction name="action_Isabelle"/>
+    </widget>
+    <addaction name="menu_Stil"/>
+    <addaction name="action_Hintergrund_darstellen"/>
+    <addaction name="action_Gitter_darstellen"/>
+   </widget>
+   <widget class="QMenu" name="menu_Extras">
+    <property name="title">
+     <string>&amp;Extras</string>
+    </property>
+    <widget class="QMenu" name="menu_Sprache">
+     <property name="title">
+      <string>&amp;Sprache</string>
+     </property>
+     <addaction name="action_Englisch"/>
+     <addaction name="action_Deutsch"/>
+     <addaction name="action_Franz_sisch"/>
+    </widget>
+    <addaction name="action_ber"/>
+    <addaction name="separator"/>
+    <addaction name="menu_Sprache"/>
+   </widget>
+   <addaction name="menu_Datei"/>
+   <addaction name="menu_Ansicht"/>
+   <addaction name="menu_Extras"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_ffnen">
+   <property name="text">
+    <string>&amp;Öffnen</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Beenden">
+   <property name="text">
+    <string>&amp;Beenden</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_Qt">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;default</string>
+   </property>
+  </action>
+  <action name="action_Primary_Colors">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Primary Colors</string>
+   </property>
+  </action>
+  <action name="action_Digia">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Digia</string>
+   </property>
+  </action>
+  <action name="action_Stone_Moss">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Stone Moss</string>
+   </property>
+  </action>
+  <action name="action_Army_Blue">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Army Blue</string>
+   </property>
+  </action>
+  <action name="action_Retro">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Retro</string>
+   </property>
+  </action>
+  <action name="action_Ebony">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Ebony</string>
+   </property>
+  </action>
+  <action name="action_Isabelle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Isabelle</string>
+   </property>
+  </action>
+  <action name="action_ber">
+   <property name="text">
+    <string>&amp;Über LDR</string>
+   </property>
+  </action>
+  <action name="action_Hintergrund_darstellen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Hintergrund darstellen</string>
+   </property>
+  </action>
+  <action name="action_Gitter_darstellen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Gitter darstellen</string>
+   </property>
+  </action>
+  <action name="action_Englisch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Englisch</string>
+   </property>
+  </action>
+  <action name="action_Deutsch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Deutsch</string>
+   </property>
+  </action>
+  <action name="action_Franz_sisch">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Französisch</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
