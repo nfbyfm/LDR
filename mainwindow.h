@@ -5,6 +5,12 @@
 #include "QtDataVisualization/q3dscatter.h"
 #include "scatterdatamodifier.h"
 
+QT_BEGIN_NAMESPACE
+class QAbstractButton;
+class QCheckBox;
+class QDialogButtonBox;
+class QGroupBox;
+QT_END_NAMESPACE
 
 using namespace QtDataVisualization;
 
@@ -27,6 +33,8 @@ private slots:
     void on_action_Beenden_triggered();
 
     void setup_scatter();
+
+    void change_language(int index);
 
     void set_style_actions_to_false();
 
@@ -52,13 +60,24 @@ private slots:
 
     void on_action_Gitter_darstellen_triggered();
 
+    void on_action_Englisch_triggered();
+
+    void on_action_Deutsch_triggered();
+
+    void on_action_Franz_sisch_triggered();
+
 private:
     Ui::MainWindow *ui;
 
     Q3DScatter *graph;
     ScatterDataModifier *modifier;
 
+    QStringList findQmFiles();
+    QString languageName(const QString &qmFile);
+    static bool languageMatch(const QString& lang, const QString& qmFile);
 
+    //QMap<QCheckBox *, QString> qmFileForCheckBoxMap;
+    //QMap<QCheckBox *, MainWindow *> mainWindowForCheckBoxMap;
 
 protected:
 

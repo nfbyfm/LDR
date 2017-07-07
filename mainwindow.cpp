@@ -12,6 +12,7 @@
 #include <QMimeData>
 #include <QUrl>
 #include <QList>
+#include "QTranslator"
 
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
@@ -22,9 +23,27 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     this->ui->action_Qt->setChecked(true);
 
     setup_scatter();
-    setAcceptDrops(true);
+    setAcceptDrops(true); //accept Drag&Drop-Operations
 
-    QLocale::system().name();
+    //detect default-language
+    QString defaultLang = QLocale::system().name();
+    QStringList qmFiles = findQmFiles();
+    int lang_index=0;
+    for (int i = 0; i < qmFiles.size(); ++i) {
+        if (languageMatch(defaultLang, qmFiles[i]))
+        {
+            //qDebug() << "default language found: " << defaultLang;//checkBox->setCheckState(Qt::Checked);
+            QString fica = defaultLang.left(2);
+            if(fica=="en")
+                lang_index=0;
+            if(fica=="de")
+                lang_index=1;
+            if(fica =="fr")
+                lang_index=2;
+            break;
+        }
+    }
+    change_language(lang_index);
 }
 
 
@@ -206,4 +225,81 @@ void MainWindow::on_action_Gitter_darstellen_triggered()
     bool checked = this->ui->action_Gitter_darstellen->isChecked();
     this->ui->action_Gitter_darstellen->setChecked(checked);
     this->modifier->setGridEnabled(checked);
+}
+
+void MainWindow::on_action_Englisch_triggered()
+{
+    //change Language to english
+    change_language(0);
+}
+
+void MainWindow::on_action_Deutsch_triggered()
+{
+    //change language to german
+    change_language(1);
+}
+
+
+void MainWindow::on_action_Franz_sisch_triggered()
+{
+    //change language to french
+    change_language(2);
+}
+
+
+void MainWindow::change_language(int index)
+{
+    //clear language selection
+    this->ui->action_Englisch->setChecked(false);
+    this->ui->action_Deutsch->setChecked(false);
+    this->ui->action_Franz_sisch->setChecked(false);
+
+    switch(index)
+    {
+    case 0:
+        //switch to english
+        this->ui->action_Englisch->setChecked(true);
+        break;
+    case 1:
+        //switch to german
+        this->ui->action_Deutsch->setChecked(true);
+        break;
+    case 2:
+        //switch to french
+        this->ui->action_Franz_sisch->setChecked(true);
+        break;
+    default:
+        //switch to default (english)
+        break;
+    }
+}
+
+
+QStringList MainWindow::findQmFiles()
+{
+    QDir dir(":/translations");
+    QStringList fileNames = dir.entryList(QStringList("*.qm"), QDir::Files, QDir::Name);
+    QMutableStringListIterator i(fileNames);
+    while (i.hasNext()) {
+        i.next();
+        i.setValue(dir.filePath(i.value()));
+    }
+    return fileNames;
+}
+
+QString MainWindow::languageName(const QString &qmFile)
+{
+    QTranslator translator;
+    translator.load(qmFile);
+
+    return translator.translate("MainWindow", "English");
+}
+
+
+bool MainWindow::languageMatch(const QString& lang, const QString& qmFile)
+{
+    //qmFile: i18n_xx.qm
+    const QString prefix = "i18n_";
+    const int langTokenLength = 2; /*FIXME: is checking two chars enough?*/
+    return qmFile.midRef(qmFile.indexOf(prefix) + prefix.length(), langTokenLength) == lang.leftRef(langTokenLength);
 }
