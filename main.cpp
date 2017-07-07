@@ -1,16 +1,17 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-/*
- * Language:
- * language-Chooser example, https://wiki.qt.io/How_to_create_a_multi_language_application
- */
+
 
 int main(int argc, char *argv[])
 {
+    //Q_INIT_RESOURCE(i18n);
+
     QApplication a(argc, argv);
+
     MainWindow w;
     w.show();
+
     try {
         QStringList cmdline_args = QCoreApplication::arguments();
 

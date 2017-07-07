@@ -1,57 +1,160 @@
-<!DOCTYPE TS><TS>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr_FR">
 <context>
     <name>MainWindow</name>
     <message>
-        <source>View</source>
-        <translation>Vue</translation>
+        <source>LDR</source>
+        <translation>LDR</translation>
     </message>
     <message>
-        <source>&amp;File</source>
-        <translation>&amp;Fichier</translation>
+        <source>&amp;Datei</source>
+        <translation>&amp;Fichie</translation>
     </message>
     <message>
-        <source>E&amp;xit</source>
-        <translation>&amp;Quitter</translation>
+        <source>&amp;Ansicht</source>
+        <translation>&amp;Vue</translation>
     </message>
     <message>
-        <source>First</source>
-        <translation>Premier</translation>
+        <source>&amp;Stil</source>
+        <translation>&amp;Style</translation>
     </message>
     <message>
-        <source>Third</source>
-        <translation>Troisième</translation>
+        <source>&amp;Extras</source>
+        <translation>&amp;Extras</translation>
     </message>
     <message>
-        <source>Language: %1</source>
-        <translation>Langue : %1</translation>
+        <source>&amp;Sprache</source>
+        <translation>&amp;Langue</translation>
     </message>
     <message>
-        <source>English</source>
-        <translation>Français</translation>
+        <source>&amp;Öffnen</source>
+        <translation>&amp;Ouvrir</translation>
     </message>
     <message>
-        <source>Oblique</source>
-        <translation>Oblique</translation>
+        <source>Ctrl+O</source>
+        <translation>Ctrl+O</translation>
     </message>
     <message>
-        <source>Second</source>
-        <translation>Deuxième</translation>
+        <source>&amp;Beenden</source>
+        <translation>&amp;Terminer</translation>
     </message>
     <message>
-        <source>Isometric</source>
-        <translation>Isométrique</translation>
+        <source>Ctrl+Q</source>
+        <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <source>Perspective</source>
-        <translation>Perspective</translation>
+        <source>&amp;default</source>
+        <translation>&amp;standard</translation>
     </message>
     <message>
-        <source>Internationalization Example</source>
-        <translation>Exemple d&apos;internationalisation</translation>
+        <source>&amp;Primary Colors</source>
+        <translation>&amp;Couleurs primaire</translation>
     </message>
     <message>
-        <source>LTR</source>
-        <translation>LTR</translation>
+        <source>&amp;Digia</source>
+        <translation>&amp;Digia</translation>
+    </message>
+    <message>
+        <source>&amp;Stone Moss</source>
+        <translation>&amp;Stone Moss</translation>
+    </message>
+    <message>
+        <source>&amp;Army Blue</source>
+        <translation>&amp;Armée bleue</translation>
+    </message>
+    <message>
+        <source>&amp;Retro</source>
+        <translation>&amp;Retro</translation>
+    </message>
+    <message>
+        <source>&amp;Ebony</source>
+        <translation>&amp;ébène</translation>
+    </message>
+    <message>
+        <source>&amp;Isabelle</source>
+        <translation>&amp;Isabelle</translation>
+    </message>
+    <message>
+        <source>&amp;Über LDR</source>
+        <translation>&amp;de LDR</translation>
+    </message>
+    <message>
+        <source>&amp;Hintergrund darstellen</source>
+        <translation>&amp;montrer le font</translation>
+    </message>
+    <message>
+        <source>&amp;Gitter darstellen</source>
+        <translation>m&amp;ontrer le réseau</translation>
+    </message>
+    <message>
+        <source>&amp;Englisch</source>
+        <translation>&amp;Anglais</translation>
+    </message>
+    <message>
+        <source>&amp;Deutsch</source>
+        <translation>&amp;Allemand</translation>
+    </message>
+    <message>
+        <source>&amp;Französisch</source>
+        <translation>&amp;Francais</translation>
+    </message>
+    <message>
+        <source>Datei öffnen</source>
+        <translation>Ouvrir fichier</translation>
+    </message>
+    <message>
+        <source>txt-Datei (*.txt *.xyz)</source>
+        <translation>txt-fichier (*.txt *.xyz)</translation>
+    </message>
+    <message>
+        <source>Datei wird eingelesen. Bitte etwas Geduld.</source>
+        <translation>Intégrer des données. Veuillez attendre un moment s&apos;il vous plait.</translation>
+    </message>
+    <message>
+        <source>Datei kann nicht geöffnet werden. Nur xyz oder txt-Dateien möglich.</source>
+        <translation>Ne peut pas ouvrir la fichier. Seulement txt et xyz sont accepté. </translation>
+    </message>
+    <message>
+        <source>Es können nur txt und xyz-Dateien geöffnet werden.</source>
+        <translation>Seulement txt et xyz sont accepté.</translation>
+    </message>
+    <message>
+        <source>Kritischer Fehler</source>
+        <translation>Erreur</translation>
+    </message>
+    <message>
+        <source>Konnte OpenGl nicht initialisieren.</source>
+        <translation>Ne peut pas initialisier OpenGL.</translation>
+    </message>
+    <message>
+        <source>Über LDR</source>
+        <translation>de LDR</translation>
+    </message>
+    <message>
+        <source>LDR: simpler Punktewolkenbetrachter
+
+Drehen: Rechte Maustaste gedrückt halten.
+Zoom: Mausrad
+
+Es werden maximal 200&apos;000 Punkte geladen/angezeigt.</source>
+        <translation>LDR: téléspectateur nuage de points
+
+tourner: bouton droit de la souris.
+Zoom: molette de la souris
+
+Max. 200&apos;000 points peuvent etre intégré. </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Messpunkte laden</source>
+        <translation>Intégrer des données</translation>
+    </message>
+    <message>
+        <source> besitzt mehr als 200&apos;000 Punkte. Es wurden nur die ersten 200&apos;000 Punkte eingelesen.</source>
+        <translation> as plus que 200&apos;000 points. Les premieres 200&apos;000 points vont etre intégré. </translation>
     </message>
 </context>
 </TS>

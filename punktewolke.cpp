@@ -98,9 +98,10 @@ QVector3D Punktewolke::parseLine(const QString &line)
 
     if(list.count() >=3)
     {
-        z_value = getdoubleValue(list.at(0));
-        x_value = getdoubleValue(list.at(1));
-        y_value = getdoubleValue(list.at(2));
+        //z,x,y
+        x_value = getdoubleValue(list.at(0));
+        y_value = getdoubleValue(list.at(1));
+        z_value = getdoubleValue(list.at(2));
     }
 
     return QVector3D(x_value, y_value, z_value);

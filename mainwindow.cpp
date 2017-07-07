@@ -27,23 +27,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     //detect default-language
     QString defaultLang = QLocale::system().name();
-    QStringList qmFiles = findQmFiles();
-    int lang_index=0;
-    for (int i = 0; i < qmFiles.size(); ++i) {
-        if (languageMatch(defaultLang, qmFiles[i]))
-        {
-            //qDebug() << "default language found: " << defaultLang;//checkBox->setCheckState(Qt::Checked);
-            QString fica = defaultLang.left(2);
-            if(fica=="en")
-                lang_index=0;
-            if(fica=="de")
-                lang_index=1;
-            if(fica =="fr")
-                lang_index=2;
-            break;
-        }
-    }
-    change_language(lang_index);
+    change_language(defaultLang);
+
 }
 
 
@@ -230,47 +215,49 @@ void MainWindow::on_action_Gitter_darstellen_triggered()
 void MainWindow::on_action_Englisch_triggered()
 {
     //change Language to english
-    change_language(0);
+    change_language("en");
 }
 
 void MainWindow::on_action_Deutsch_triggered()
 {
     //change language to german
-    change_language(1);
+    change_language("de");
 }
 
 
 void MainWindow::on_action_Franz_sisch_triggered()
 {
     //change language to french
-    change_language(2);
+    change_language("fr");
 }
 
 
-void MainWindow::change_language(int index)
+void MainWindow::change_language(QString language)
 {
     //clear language selection
-    this->ui->action_Englisch->setChecked(false);
-    this->ui->action_Deutsch->setChecked(false);
-    this->ui->action_Franz_sisch->setChecked(false);
+    this->ui->action_Englisch->setChecked(Qt::Unchecked);
+    this->ui->action_Deutsch->setChecked(Qt::Unchecked);
+    this->ui->action_Franz_sisch->setChecked(Qt::Unchecked);
 
-    switch(index)
-    {
-    case 0:
-        //switch to english
+    if(language.toLower().contains("en"))
         this->ui->action_Englisch->setChecked(true);
-        break;
-    case 1:
-        //switch to german
+
+    if(language.toLower().contains("de"))
         this->ui->action_Deutsch->setChecked(true);
-        break;
-    case 2:
-        //switch to french
+
+    if(language.toLower().contains("fr"))
         this->ui->action_Franz_sisch->setChecked(true);
-        break;
-    default:
-        //switch to default (english)
-        break;
+
+    //search for fitting qm-file, switchtranslator
+    QStringList qmFiles = findQmFiles();
+
+    for (int i = 0; i < qmFiles.size(); ++i) {
+
+        if (languageMatch(language, qmFiles[i]))
+        {
+            //qDebug() << "default language found: " << defaultLang;//checkBox->setCheckState(Qt::Checked);
+            switchTranslator(m_translator,qmFiles[i]);
+        }
     }
 }
 
@@ -302,4 +289,38 @@ bool MainWindow::languageMatch(const QString& lang, const QString& qmFile)
     const QString prefix = "i18n_";
     const int langTokenLength = 2; /*FIXME: is checking two chars enough?*/
     return qmFile.midRef(qmFile.indexOf(prefix) + prefix.length(), langTokenLength) == lang.leftRef(langTokenLength);
+}
+
+void MainWindow::switchTranslator(QTranslator &translator, const QString &filename)
+{
+    // remove the old translator
+    qApp->removeTranslator(&translator);
+
+    // load the new translator
+    if(translator.load(filename))
+    {
+        qApp->installTranslator(&translator);
+        this->ui->retranslateUi(this);
+    }
+}
+
+void MainWindow::changeEvent(QEvent* event)
+{
+    if(0 != event) {
+        switch(event->type()) {
+        // this event is send if a translator is loaded
+        case QEvent::LanguageChange:
+            this->ui->retranslateUi(this);
+            break;
+
+            // this event is send, if the system, language changes
+        case QEvent::LocaleChange:
+        {
+            QString defaultLang = QLocale::system().name();
+            change_language(defaultLang);
+        }
+            break;
+        }
+    }
+    QMainWindow::changeEvent(event);
 }

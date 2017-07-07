@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "QtDataVisualization/q3dscatter.h"
 #include "scatterdatamodifier.h"
+#include "QTranslator"
 
 QT_BEGIN_NAMESPACE
 class QAbstractButton;
@@ -34,7 +35,7 @@ private slots:
 
     void setup_scatter();
 
-    void change_language(int index);
+    void change_language(QString language);
 
     void set_style_actions_to_false();
 
@@ -66,8 +67,11 @@ private slots:
 
     void on_action_Franz_sisch_triggered();
 
+
+
 private:
     Ui::MainWindow *ui;
+    QTranslator m_translator; // contains the translations for this application
 
     Q3DScatter *graph;
     ScatterDataModifier *modifier;
@@ -76,14 +80,15 @@ private:
     QString languageName(const QString &qmFile);
     static bool languageMatch(const QString& lang, const QString& qmFile);
 
-    //QMap<QCheckBox *, QString> qmFileForCheckBoxMap;
-    //QMap<QCheckBox *, MainWindow *> mainWindowForCheckBoxMap;
+    void switchTranslator(QTranslator& translator, const QString& filename);
 
 protected:
 
     void dragEnterEvent(QDragEnterEvent *e);
 
     void dropEvent(QDropEvent *e);
+
+    void changeEvent(QEvent *);
 };
 
 #endif // MAINWINDOW_H
