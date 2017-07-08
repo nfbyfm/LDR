@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>&amp;Datei</source>
-        <translation>&amp;Fichie</translation>
+        <translation>&amp;Fichier</translation>
     </message>
     <message>
         <source>&amp;Ansicht</source>
