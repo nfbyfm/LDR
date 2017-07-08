@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Stil</source>
-        <translation>&amp;Style</translation>
+        <translation>&amp;style</translation>
     </message>
     <message>
         <source>&amp;Extras</source>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <source>&amp;default</source>
-        <translation>&amp;standard</translation>
+        <translation>&amp;Standard</translation>
     </message>
     <message>
         <source>&amp;Primary Colors</source>
@@ -138,12 +138,12 @@ Drehen: Rechte Maustaste gedrückt halten.
 Zoom: Mausrad
 
 Es werden maximal 200&apos;000 Punkte geladen/angezeigt.</source>
-        <translation>LDR: téléspectateur nuage de points
+        <translation>LDR: téléspectateur des nuages de points
 
 tourner: bouton droit de la souris.
-Zoom: molette de la souris
+zoom: molette de la souris
 
-Max. 200&apos;000 points peuvent etre intégré. </translation>
+Max. 200&apos;000 points peuvent être intégré. </translation>
     </message>
 </context>
 <context>
